@@ -9,18 +9,30 @@ autoescape:true,
 express:app
 });
 
+app.use(express.urlencoded({extended:true}));
+
 app.get('/', (req, res) => {
   console.log(req.query.name);
   res.render('index.njk');
     
 });
  
-app.get('/', (req, res) => {
-  console.log(req.query.name);
-  res.render('greeting.njk');
- 
-  });
 
+app.get('/page', (req, res) => {
+  res.render('page.njk', {page: req.query.p});
+    
+});
+
+
+
+app.get('/', (req, res) => {
+  console.log(req.query);
+  console.log(req.body);
+  res.render('greeting.njk',{
+    name: req.query.name,
+    age: req.query.age
+  });
+  });
 
 app.get('/about', (req, res) => {
   res.render('about.njk');

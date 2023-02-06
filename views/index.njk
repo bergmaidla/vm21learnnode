@@ -1,9 +1,19 @@
 
-    {% extends 'partials/layout.njk' %}
-    {% block content %}
-   <form action="/ greeting" method="GET">
-<input type="text" name="berg" placeholder="Enter your name here..."> 
-<input type="number" name="age" placeholder="How old are you?" max="150">
-<input type="submit"> 
+{% extends 'partials/layout.njk' %}
+{% block content %}
+   <form action="/ greeting?value=someting" method="POST">
+      <input type="text" name="name" placeholder="Enter your name here..."> 
+      <input type="number" name="age" placeholder="How old are you?" max="150">
+      <input type="submit"> 
    </form>
-    {% endblock %}
+
+   <ul>
+      {% for num in [1,2,3,4,5,6,7,8,9,10]%}
+      <li>
+         <a href= "/page?p={{num}}">
+         {{num}}
+         </a>
+      </li>
+      {%endfor%}
+   </ul>
+{% endblock %}
