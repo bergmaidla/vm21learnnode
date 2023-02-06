@@ -10,8 +10,17 @@ express:app
 });
 
 app.get('/', (req, res) => {
+  console.log(req.query.name);
   res.render('index.njk');
+    
 });
+ 
+app.get('/', (req, res) => {
+  console.log(req.query.name);
+  res.render('greeting.njk');
+ 
+  });
+
 
 app.get('/about', (req, res) => {
   res.render('about.njk');
@@ -32,6 +41,8 @@ app.get('/values', (req, res) => {
 app.get('/arbuus', (req, res) => {
   res.render('arbuus.njk');
 });
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost: ${port}`);
