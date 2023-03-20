@@ -3,6 +3,16 @@ const path = require ('path')
 const app = express();
 const port = 3000;
 const nunjucks = require('nunjucks');
+const sqlite3 = require(sqlite3);
+const open = require('sqlite').open;
+
+open({
+  filename:'./database.sqlite',
+  driver: sqlite3.Database
+}).then(async db =>{
+  const result = await db.all('select * from articles;');
+  consule.log(result);
+});
 
 nunjucks.configure('views', {
 autoescape:true,
@@ -52,6 +62,12 @@ app.get('/values', (req, res) => {
 
 app.get('/arbuus', (req, res) => {
   res.render('arbuus.njk');
+});
+
+app.get('/articles', (req, res) => {
+  const result = await db.all('select * from articles;');
+  console.log(result);
+  res.render('articles.njk', {articles});
 });
 
 

@@ -1,0 +1,24 @@
+ {% extends 'partials/layout.njk' %}
+    {% block content %}
+    <a href="/articles/new">add articles</a>
+    <h1>articles</h1>
+<table>
+    <thead>
+        <th>id</th>
+ <th>title</th>
+ <th>body</th>
+ <th>actions</th>
+ </thead>
+<tbody>
+    {%for articles in articles %}
+    <tr>
+        <td>1</td>
+            <td>{{fghf}}</td>
+            <td>{{fhds}}</td>
+            <td>{{actions}}</td>
+            <td>actions</td>
+            </tr>
+    {% endfor %}
+         </tbody>
+       </table>
+    {%endblock%}
