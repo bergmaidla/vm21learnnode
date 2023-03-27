@@ -85,9 +85,19 @@ app.get('/articles/edit', async (req, res) => {
 });
 
 app.post('/articles/edit', async (req, res) => {
-  await db.run(`uptade articles set title'${req.body.title}', body='${req.body.body}' where id=${req.query.id}`);
+  await db.run(`UPTADE articles
+   set title'${req.body.title}', body='${req.body.body}'
+    where id=${req.query.id}`);
   res.redirect ('/articles');
 });
+
+app.get('/articles/delete', async (req, res) => {
+  await db.run(`DELETE FROM  articles
+    where id=${req.query.id}`);
+  res.redirect ('/articles');
+});
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost: ${port}`);
