@@ -10,13 +10,16 @@
  <th>actions</th>
  </thead>
 <tbody>
-    {%for articles in articles %}
+    {%for article in articles %}
     <tr>
         <td>1</td>
-            <td>{{fghf}}</td>
-            <td>{{fhds}}</td>
-            <td>{{actions}}</td>
-            <td>actions</td>
+            <td>{{article.id}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.body}}</td>
+            <td>
+<a href="/articles/edit?id={{ article.id }}">edit<a>
+    <a href="/articles/delete?id={{ article.id }}">delete<a>
+            </td>
             </tr>
     {% endfor %}
          </tbody>
